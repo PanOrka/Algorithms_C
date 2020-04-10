@@ -1,4 +1,5 @@
 #include "randomizer.h"
+#include "median.h"
 
 int *arr_to_display;
 int size_of_display, k_place;
@@ -74,10 +75,6 @@ void linear_search_max(int *arr, int size) {
     trans++;
     display_transposition(*(arr+max_pos), max);
     display_rest();
-}
-
-void linear_search_median(int *arr, int size, int kth) {
-
 }
 
 void random_select_search(int *arr, int size, int kth, pcg32_random_t *rng) {
@@ -161,7 +158,7 @@ void random_select(int *arr, int size, int kth) {
     } else if (kth == size) {
         linear_search_max(arr, size);
     } else if (kth == (size+1)/2) {
-        linear_search_median(arr, size, kth);
+        linear_search_median(arr, 0, size-1, kth-1);
     } else {
         pcg32_random_t rng;
         pcg32_srandom_r(&rng, time(NULL) ^ (intptr_t)&printf, (intptr_t)&size);
