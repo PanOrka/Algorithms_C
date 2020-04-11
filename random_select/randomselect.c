@@ -142,9 +142,9 @@ SWAP:   *(arr+size-1) = *(arr+index_left);
     if (index_left+2 == kth) {
         return;
     } else if (kth < index_left+2) {
-        random_select_search(arr, index_left+1, kth, rng);
+        return random_select_search(arr, index_left+1, kth, rng);
     } else {
-        random_select_search(arr+index_left+2, size-index_left-2, kth-(index_left+2), rng);
+        return random_select_search(arr+index_left+2, size-index_left-2, kth-(index_left+2), rng);
     }
 }
 

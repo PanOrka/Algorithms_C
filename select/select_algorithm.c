@@ -133,9 +133,9 @@ void select_search(int *arr, int size, int kth) {
         if (pivot+1 == kth) {
             return;
         } else if (kth < pivot+1) {
-            select_search(arr, pivot, kth);
+            return select_search(arr, pivot, kth);
         } else {
-            select_search(arr+pivot+1, size-pivot-1, kth - (pivot+1));
+            return select_search(arr+pivot+1, size-pivot-1, kth - (pivot+1));
         }
     }
 }
