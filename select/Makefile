@@ -1,4 +1,6 @@
 TARGETS = select
+CC = gcc # flag for gcc
+LOADLIBES = -lm # flag for libraries
 
 all: $(TARGETS)
 

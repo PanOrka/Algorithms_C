@@ -50,7 +50,7 @@ int find_pivot(int *arr, int size) {
             trans++;
             display_transposition(*(arr+place_swap), *(arr+i*5+(((size%5)-1)/2)));
         }
-        return find_pivot(arr, place_swap);
+        return select_search(arr, place_swap, (place_swap+1)/2);
     } else if (size == 5) {
         insertion_sort(arr, size);
         return 2;
@@ -121,17 +121,18 @@ SWAP:   *(arr+size-1) = *(arr+index_left);
     return index_left+1;
 }
 
-void select_search(int *arr, int size, int kth) {
+int select_search(int *arr, int size, int kth) {
     if (size <= 1) {
-        return;
+        return kth;
     } else if (size <= 6) {
         insertion_sort(arr, size);
+        return kth;
     } else {
         int pivot = find_pivot(arr, size);
         pivot = partition(arr, size, pivot);
 
         if (pivot+1 == kth) {
-            return;
+            return kth;
         } else if (kth < pivot+1) {
             return select_search(arr, pivot, kth);
         } else {
