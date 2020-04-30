@@ -50,7 +50,7 @@ int find_pivot(int *arr, int size) {
             trans++;
             display_transposition(*(arr+place_swap), *(arr+i*5+(((size%5)-1)/2)));
         }
-        return select_search(arr, place_swap, (place_swap+1)/2);
+        return select_search(arr, place_swap, (place_swap+1)/2) - 1;
     } else if (size == 5) {
         insertion_sort(arr, size);
         return 2;
