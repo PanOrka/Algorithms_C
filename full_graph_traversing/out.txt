@@ -1,0 +1,4 @@
+Random Walk: 15, 130.799172, 16 (bytes), 0.216807 (ms)
+Lowest Edge Weight: 15, 78.038390, 16 (bytes), 0.112287 (ms)
+MST Kruskal: 30, 89.454305, 1112 (bytes), 0.049229 (ms)
+MST Prim: 30, 89.454305, 344 (bytes), 0.032258 (ms)
